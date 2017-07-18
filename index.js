@@ -12,7 +12,7 @@ exports.findPlaces = (event, context, callback) => {
 	}
 	else if(event.currentIntent.name == "voteForSuggestion"){
 		console.log("voting");
-		voteForOption(event, context, callback);
+		voteForOption(event, context, callback);	
 	}
 	
 }
@@ -148,7 +148,7 @@ function saveOptions(googleResponse, callback, context){
 function createSlackMsg(oldmsg){
 	if(oldmsg.length>9){oldmsg = oldmsg.splice(0,10);}
 	var slackmsg = {
-		"text": "Showing suggestions for your request. Please vote to select a place!",
+		"text": "You have 3 minutes to select a place you like. Please vote to select a place!",
 		"attachments": []
 			}
 	oldmsg.forEach(function(element, index){
